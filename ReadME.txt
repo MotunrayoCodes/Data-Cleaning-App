@@ -7,7 +7,7 @@ It supports two cleaning structure based on the organization's data cleaning req
 
 Features
 
-- Upload `.csv` or `.xlsx` files
+- Upload .csv files
 - Apply different cleaning logic depending on the dataset
 - View raw and cleaned data
 - Download cleaned data
