@@ -33,7 +33,7 @@ def pay_lawma_dc(df):
     # drop uneccessary columns
     df= df.drop(columns=['Id','Receipt code','Account number','Sterling account number','Customer ref','Invoice code','Reconciled'
                          ,'Transaction reference','Comment','Transaction type'])
-    # df = df.dropna(axis=1, how='all')
+
     
     # Convert to datetime
     df['Payment date'] = pd.to_datetime(df['Payment date'], errors='coerce')  
