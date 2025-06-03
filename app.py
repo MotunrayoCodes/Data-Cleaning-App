@@ -1,18 +1,16 @@
 # app.py
 import streamlit as st
 import pandas as pd
-from cleaning_script import direct_billing_dc, pay_lawma_dc # type: ignore
+from cleaning_script import direct_billing_dc, pay_lawma_dc 
 
 st.title(" Customized Data Cleaning App ")
 
-uploaded_file = st.file_uploader("Upload your dataset (CSV or Excel)", type=["csv", "xlsx"])
+uploaded_file = st.file_uploader("Upload your dataset (CSV)", type=["csv"])
 
 if uploaded_file:
     try:
-        if uploaded_file.name.endswith('.csv'):
-            df = pd.read_csv(uploaded_file)
-        else:
-            df = pd.read_excel(uploaded_file)
+        df = pd.read_csv(uploaded_file)
+        st.success("File uploaded successfully!")
 
         st.write("📄 Raw Data", df.head())
 
@@ -29,8 +27,8 @@ if uploaded_file:
             cleaned_df = None
 
         if cleaned_df is not None:
-            st.success("✅ Data cleaned successfully!")
-            st.write("🧼 Cleaned Data", cleaned_df.head())
+            st.success("Data cleaned successfully!")
+            st.write(" Cleaned Data", cleaned_df.head())
 
             # Download button
             csv = cleaned_df.to_csv(index=False).encode('utf-8')
